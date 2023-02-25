@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "4.18.2",
+    "mysql2": "^3.1.2",
+    "sequelize": "^6.28.1"
+  },
+  "name": "crud-backend-lechilinhdev",
+  "version": "1.0.0",
+  "description": "crud-backend-express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/server.js"
+  },
+  "author": "lechilinhdev",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
