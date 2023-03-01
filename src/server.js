@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express()
+const cors = require("cors");
 require('dotenv').config()
 const sequelize = require('./models/index')
 const port = process.env.PORT || 8119
+app.use(cors());
+app.options('*', cors());
 const configViewEngin = require('./config/configViewEngin');
 //config webroute
 const webroute = require('./routes/tutorials.routes')

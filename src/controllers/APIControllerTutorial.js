@@ -1,5 +1,22 @@
 const db = require('../models');
 const dbAPITutorial = db.createTutorial;
+const Op = db.Sequelize.Op;
+
+const getTutorial = async (req, res) => {
+    const title = req.query.title;
+    var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+
+    dbAPITutorial.findAll({ where: condition })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving tutorials."
+            });
+        });
+}
 
 const createAPI = async (req, res) => {
     const tutorial = {
@@ -75,5 +92,5 @@ const updateTutorial = async (req, res) => {
 }
 
 module.exports = {
-    createAPI, deleteTutorialById, updateTutorial
+    createAPI, deleteTutorialById, updateTutorial, getTutorial
 }
